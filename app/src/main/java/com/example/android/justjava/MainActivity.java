@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
+
+
     public void submitOrder(View view) {
         int quantity = 3;
         display(quantity);
@@ -44,13 +46,15 @@ public class MainActivity extends AppCompatActivity {
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
 
-    private void increment(View view){
-        int quantity = 3;
+    public void increment(View view){
+        int quantity = 2;
+        quantity += 1;
         display(quantity);
     }
 
-    private void decrement(View view) {
-        int quantity = 1;
+    public void decrement(View view) {
+        int quantity = 2;
+        quantity -= 1;
         display(quantity);
     }
 }
