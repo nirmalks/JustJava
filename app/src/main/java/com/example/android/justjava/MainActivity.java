@@ -12,6 +12,7 @@ import java.text.NumberFormat;              //for NumberFormat in displayPrice m
  */
 public class MainActivity extends AppCompatActivity {
 
+    int quantity = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void submitOrder(View view) {
-        int quantity = 3;
-        display(quantity);
         displayPrice(quantity * 5);
     }
 
@@ -47,13 +46,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increment(View view){
-        int quantity = 2;
         quantity += 1;
         display(quantity);
     }
 
     public void decrement(View view) {
-        int quantity = 2;
         quantity -= 1;
         display(quantity);
     }
