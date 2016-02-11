@@ -13,6 +13,7 @@ import java.text.NumberFormat;              //for NumberFormat in displayPrice m
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
+    int pricePerCup = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +23,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
-
-    private int calculatePrice(int quantity) {
-        int price = quantity * 5;
-        return price;
-    }
     public void submitOrder(View view) {
-        String priceMessage = "Total: $ " + calculatePrice(quantity);
+        int price = calculatePrice();
+        String priceMessage = "Total: $ " + price;
         priceMessage = priceMessage + "\nThank You!";
         displayMessage(priceMessage);
     }
@@ -62,5 +59,8 @@ public class MainActivity extends AppCompatActivity {
     private void displayMessage(String message) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(message);
+    }
+    private int calculatePrice() {
+        return quantity * pricePerCup;
     }
 }
