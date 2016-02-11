@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
     int pricePerCup = 5;
+    String name= "Nirmal";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String priceMessage = "Total: $ " + price;
-        priceMessage = priceMessage + "\nThank You!";
-        displayMessage(priceMessage);
+        String summary = createOrderSummary(pricePerCup);
+        displayMessage(summary);
     }
 
     /**
@@ -62,5 +62,10 @@ public class MainActivity extends AppCompatActivity {
     }
     private int calculatePrice() {
         return quantity * pricePerCup;
+    }
+    public String createOrderSummary(int price){
+        String priceMessage = "Name:"+name + "\n"+ "Quantity:" + quantity + "\n" + "Total: $ " +
+                (quantity * price) + "\nThank You!";
+        return priceMessage  ;
     }
 }
