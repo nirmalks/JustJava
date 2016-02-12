@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;              //for NumberFormat in displayPrice method
@@ -15,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
     int pricePerCup = 5;
-    String name= "Nirmal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +27,16 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        EditText nameField = (EditText) findViewById(R.id.enter_name_text_view);
+        String name = nameField.getText().toString();
+
         CheckBox checkbox = (CheckBox) findViewById(R.id.whippedCream_checkbox);
         boolean hasWhippedCream = checkbox.isChecked();
 
         CheckBox chocoCheckbox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocoCheckbox.isChecked();
 
-        String summary = createOrderSummary(pricePerCup, hasWhippedCream , hasChocolate);
+        String summary = createOrderSummary(name ,pricePerCup, hasWhippedCream , hasChocolate);
         displayMessage(summary);
     }
 
@@ -61,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         orderSummaryTextView.setText(message);
     }
 
-    public String createOrderSummary(int price , boolean addWhippedCream , boolean addChocolate){
-        return "Name:" + name +  "\n" + "Add Whipped Cream? "  + addWhippedCream + "\n" + "Add Chocolate topping" + addChocolate + "\n" + "Quantity:" + quantity + "\n" + "Total: $ " +
+    public String createOrderSummary(String name , int price , boolean addWhippedCream , boolean addChocolate){
+        return "Name: " + name +  "\n" + "Add Whipped Cream? "  + addWhippedCream + "\n" + "Add Chocolate topping " + addChocolate + "\n" + "Quantity: " + quantity + "\n" + "Total: $ " +
                 (quantity * price) + "\nThank You!";
     }
 }
