@@ -30,7 +30,7 @@
             android:textSize="16sp"
             android:text="@string/whippedCream"
             android:id="@+id/whippedCream_checkbox"
-            android:onClick="onCheckBoxClicked"/>
+            />
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:textSize="16sp"
             android:text="@string/chocolate"
             android:id="@+id/chocolate_checkbox"
-            android:onClick="onCheckBoxClicked"/>
+         />
 
         <TextView
             android:layout_width="wrap_content"
