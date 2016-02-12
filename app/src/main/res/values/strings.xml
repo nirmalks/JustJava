@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Just Java</string>
     <string name="toppings">Toppings</string>
-    <string name="toppingName">Whipped Cream</string>
+    <string name="whippedCream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
     <string name="quantity">Quantity</string>
     <string name="qtyno">2</string>
     <string name="orderSummary">Order Summary</string>
