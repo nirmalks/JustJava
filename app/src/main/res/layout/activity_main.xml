@@ -14,7 +14,24 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:textAllCaps="true"
+        android:text="@string/toppings" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        android:text="@string/toppingName"
+        android:onClick="onCheckBoxClicked"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textAllCaps="true"
         android:text="@string/quantity" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,10 +67,10 @@
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
         android:textAllCaps="true"
-        android:text="@string/price" />
+        android:text="@string/orderSummary" />
 
     <TextView
-        android:id="@+id/price_text_view"
+        android:id="@+id/order_summary_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
