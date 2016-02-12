@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
     int pricePerCup = 5;
+    int priceOfChocolate = 0;
+    int priceOFWhippedCream = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
         CheckBox chocoCheckbox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocoCheckbox.isChecked();
-
+        if(hasChocolate){
+            priceOfChocolate = 2;
+        }
+        if(hasWhippedCream){
+            priceOFWhippedCream = 1;
+        }
         String summary = createOrderSummary(name ,pricePerCup, hasWhippedCream , hasChocolate);
         displayMessage(summary);
     }
@@ -65,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String createOrderSummary(String name , int price , boolean addWhippedCream , boolean addChocolate){
+        int total =  (quantity * price ) + (quantity * priceOfChocolate) + (quantity * priceOFWhippedCream);
         return "Name: " + name +  "\n" + "Add Whipped Cream? "  + addWhippedCream + "\n" + "Add Chocolate topping " + addChocolate + "\n" + "Quantity: " + quantity + "\n" + "Total: $ " +
-                (quantity * price) + "\nThank You!";
+             total + "\nThank You!";
     }
 }
