@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;              //for NumberFormat in displayPrice method
 
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if(hasWhippedCream){
             priceOFWhippedCream = 1;
         }
+
         String summary = createOrderSummary(name ,pricePerCup, hasWhippedCream , hasChocolate);
         displayMessage(summary);
     }
@@ -57,12 +59,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increment(View view){
-        quantity += 1;
+        if( quantity < 100){
+            quantity += 1;
+        } else {
+            Toast.makeText(this, "You cannot have more than 99 coffees", Toast.LENGTH_SHORT).show();
+        }
+
         displayQuantity(quantity);
     }
 
     public void decrement(View view) {
-        quantity -= 1;
+        if(quantity > 1) {
+            quantity -= 1;
+        } else {
+            Toast.makeText(this,"You cannot have less than 1 coffee",Toast.LENGTH_SHORT).show();
+        }
         displayQuantity(quantity);
     }
 
