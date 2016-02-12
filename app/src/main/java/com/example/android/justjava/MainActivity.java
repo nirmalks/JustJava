@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     int quantity = 2;
     int pricePerCup = 5;
     String name= "Nirmal";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
-    
+
     public void increment(View view){
         quantity += 1;
         displayQuantity(quantity);
@@ -48,13 +49,16 @@ public class MainActivity extends AppCompatActivity {
         quantity -= 1;
         displayQuantity(quantity);
     }
+
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
+
     private int calculatePrice() {
         return quantity * pricePerCup;
     }
+
     public String createOrderSummary(int price){
         String priceMessage = "Name:"+name + "\n"+ "Quantity:" + quantity + "\n" + "Total: $ " +
                 (quantity * price) + "\nThank You!";
